@@ -1,27 +1,75 @@
-// Pig Latin takes the first consonant (or consonant cluster) of an English 
-// word, moves it to the end of the word and suffixes an ay, or if a word
-// begins with a vowel you just add ay to the end. For example, pig becomes
-// igpay, banana becomes ananabay, and aadvark becomes aadvarkay.
-// CREATE THE FUNCTIONS BELOW
-
-// Document Ready Function. All of your jQuery should go in here. 
 $( document ).ready(function() {
-  
-
-
-
+  $("button").click(function(){
+  	var input = $("input").val();
+  	var output = translate(input);
+  	$("#result").text(output);
+  });
 });
+function ay(word) {
+    return word + "ay";
+}
+
+//function wordsplit(x){
+    
+  //  return x.split(" ");
+//}
+function translate(sentence) {
+    var array = sentence.split(" ");
+    var piglatinwords = "";
+    for (var i = 0; i < array.length; i = i + 1) {
+        var word = array[i];
+        var pig = ay (word);
+        piglatinwords = piglatinwords + " " + wordToPigLatin(word);
+    }
+    return piglatinwords;
+}
+function startsWithAVowel(word) {
+  var firstLetter = word[0].toLowerCase();
+  
+  if (firstLetter === "a" || firstLetter === "e" || firstLetter === "i" || firstLetter === "o" || firstLetter === "u") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function wordToPigLatin(word) {
+	var result;
+	if (startsWithAVowel(word)) {
+		result = word + "ay";
+	} else {
+		result = word.slice(1) + word[0] + "ay";
+	}
+	return result;
+}
+   // function piglatin(word){
+	//   return word + "ay"
+//}
+//function sentenceToPigLatin(sentences){
+//	var words = sentences.split(" ");
+//}
+
+/*
+    checkVowl("angel") = -> true
+    evergreen
+    checkVowel("car") -> false
 
 
-// Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
+*/
 
+function checkVowel(word){
+    
+}
 
+//function isTheLetterA(word) {
+  //  var firstLetter = word[0];
+ //   if (word[0] === "a" == "e" == "i" == "o" == "u"){
+ //       return word + "ay";
+ //   }
+//}
 
-
-
-
-// Create the sentenceToPigLatin function that takes a sentence as a parameter
-	//Loops through all the words in the sentence and transforms each word
-	//It should return a transfromed sentance
-
-
+function piglatinze(sentence){
+    //return sentence.slice(1,sentence.length) + sentence[0] + "ay";
+}
+var vowel = ["a" , "e" , "i" , "o" , "u"];
+//return sentences.slice(1,sentences.length) + sentences[0]

@@ -1,1 +1,7 @@
-
+body{
+    background:#ffe644;
+    color: green;
+}
+.container{
+    text-align: center;
+}
